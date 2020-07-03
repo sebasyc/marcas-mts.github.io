@@ -63,3 +63,123 @@ body {
 		}
 	}
 }
+
+.cont-marcas {
+	padding: 3em 0;
+	.marcas-title {
+		padding: 0 0 2em;
+		text-align: center;
+		h1 {
+			position: relative;
+			margin: 0 0 1em;
+			font-size: 1.75em;
+			color: #333333;
+			text-transform: uppercase;
+			font-weight: bold;
+			&:after {
+				content: "";
+				position: absolute;
+				width: 70px;
+				height: 6px;
+				background-color: $red;
+				border-radius: 50px;
+				bottom: -10px;
+				@include center-x;
+			}
+		}
+		p {
+			padding: 0;
+			font-size:.875em;
+			color: #666666;
+		}
+	}
+	.row-marcas {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -15px;
+		@media (max-width: 480px) {
+			margin: 0 -5px;
+		}
+		&__col {
+			width: 20%;
+			padding: 0 15px 25px;
+			@media (max-width: 991px) {
+				width: 25%;
+			}
+			@media (max-width: 768px) {
+				width: 33.33333%;
+			}
+			@media (max-width: 480px) {
+				width: 50%;
+				padding: 0 5px 20px;
+			}
+			.box-marca {
+				position: relative;
+				display: block;
+				border: 1px solid #cccccc;
+				border-radius: 1em;	
+				transition: .3s;
+				&__img {
+					position: relative;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					height: 190px;
+					padding: 1em;
+					border-radius: 1em;
+					overflow: hidden;
+					opacity: .5;
+					filter: grayscale(100%);
+					transition: .3s;
+					@media (max-width: 1199px) {
+						height: 150px;
+					}
+					@media (max-width: 768px) {
+						opacity: 1;
+						filter: none;
+					}
+					img {
+						width: 100%;
+					}
+				}
+				&__btn {
+					position: absolute;
+					display: block;
+					width: 130px;
+					padding: .35em 1.5em;
+					background-color: $red;
+					border-radius: 50px;
+					font-size: .75em;
+					color: white;
+					text-align: center;
+					font-weight: bold;
+					opacity: 0;
+					transition: .3s;
+					bottom: -20px;
+					@include center-x;
+					@media (max-width: 768px) {
+						bottom: -10px;
+						opacity: 1;
+					}
+				}
+				&:hover {
+					transform: translate(0,-3px);
+					box-shadow: 0 3px 20px rgba(0,0,0,.15);
+					@media (max-width: 768px) {
+						transform: none;
+					}
+					.box-marca {
+						&__img {
+							opacity: 1;
+							filter: none;
+						}
+						&__btn {
+							bottom: -10px;
+							opacity: 1;
+						}
+					}
+				}
+			}
+		}
+	}
+}
